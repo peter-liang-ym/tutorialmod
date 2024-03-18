@@ -1,0 +1,9 @@
+{
+  "item.tutorialmod.rifle": "Assault Rifle",
+  "item.tutorialmod.emerald_sword": "Emerald Sword",
+  "item.tutorialmod.emerald_pickaxe": "Emerald Pickaxe",
+  "item.tutorialmod.emerald_axe": "Emerald Axe",
+  "item.tutorialmod.emerald_shovel": "Emerald Shovel",
+  "itemgroup.tutorialmod": "Tutorial"
+
+}
