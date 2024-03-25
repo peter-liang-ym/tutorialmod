@@ -9,6 +9,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import peter.tutorialmod.TutorialMod;
+import peter.tutorialmod.block.ModBlocks;
 
 public class ModItemGroups {
 
@@ -17,10 +18,12 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.tutorialmod"))
                     .icon(() -> new ItemStack(Items.DIAMOND)).entries((displayContext, entries) -> {
                         entries.add(ModItems.RIFLE);
+                        entries.add(ModItems.BULLET);
                         entries.add(ModItems.EMERALD_SWORD);
                         entries.add(ModItems.EMERALD_PICKAXE);
                         entries.add(ModItems.EMERALD_AXE);
                         entries.add(ModItems.EMERALD_SHOVEL);
+                        entries.add(ModBlocks.CHEESE_BLOCK);
                     }).build());
 
 

@@ -3,6 +3,8 @@ package peter.tutorialmod.item;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -12,6 +14,7 @@ import peter.tutorialmod.TutorialMod;
 public class ModItems {
 
     public static final Item RIFLE = registerItem("rifle", new Item(new FabricItemSettings()));
+    public static final Item BULLET = registerItem("bullet", new Item(new FabricItemSettings()));
     public static final Item EMERALD_SWORD = registerItem("emerald_sword",
             new SwordItem(ModToolMaterial.EMERALD, 100, 5f, new FabricItemSettings()));
     public static final Item EMERALD_PICKAXE = registerItem("emerald_pickaxe",
@@ -23,7 +26,6 @@ public class ModItems {
 
     public static void registerModItems() {
         TutorialMod.LOGGER.info("Registering mod items");
-
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.COMBAT).register(ModItems::addItemsToGroup);
     }
 
