@@ -16,7 +16,7 @@ public class ModItemGroups {
     public static final ItemGroup EMERALD_GROUP = Registry.register(Registries.ITEM_GROUP,
             new Identifier(TutorialMod.MOD_ID, "tutorialmod"),
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.tutorialmod"))
-                    .icon(() -> new ItemStack(Items.DIAMOND)).entries((displayContext, entries) -> {
+                    .icon(() -> new ItemStack(ModItems.RIFLE)).entries((displayContext, entries) -> {
                         entries.add(ModItems.RIFLE);
                         entries.add(ModItems.BULLET);
                         entries.add(ModItems.EMERALD_SWORD);
