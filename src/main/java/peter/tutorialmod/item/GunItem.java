@@ -17,14 +17,16 @@ public class GunItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         player.playSound(SoundEvents.ENTITY_ENDERMAN_DEATH, 1, 1);
+        ItemStack itemStack = player.getStackInHand(hand);
 
         if (!world.isClient) {
-            BulletEntity bulletEntity = new BulletEntity(world, player);
+            BulletEntity bulletEntity = new BulletEntity(world, player.getX(), player.getEyeY() - 0.5f, player.getZ());
+//            bulletEntity.setItem(new ItemStack(ModItems.BULLET));
             bulletEntity.setVelocity(player, player.getPitch(), player.getYaw(), 0.0f, 5f, 0f);
             world.spawnEntity(bulletEntity);
         }
 
-        return super.use(world, player, hand);
+        return TypedActionResult.success(itemStack, world.isClient());
     }
 
 }
