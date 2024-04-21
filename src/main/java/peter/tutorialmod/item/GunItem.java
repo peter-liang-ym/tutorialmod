@@ -10,6 +10,8 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import peter.tutorialmod.entity.BulletEntity;
+import peter.tutorialmod.entity.ModEntities;
 
 public class GunItem extends Item {
     public GunItem(Settings settings) {
@@ -19,14 +21,15 @@ public class GunItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity player, Hand hand) {
         player.playSound(SoundEvents.ENTITY_ENDERMAN_DEATH, 1, 1);
+        ItemStack itemStack = player.getStackInHand(hand);
 
         if (!world.isClient) {
-            ArrowEntity arrow = new ArrowEntity(world, player, new ItemStack(Items.ARROW));
-            arrow.setVelocity(player, player.getPitch(), player.getYaw(), 0, 8, 0);
-            world.spawnEntity(arrow);
+            BulletEntity bullet = new BulletEntity(ModEntities.BULLET_ENTITY_ENTITY_TYPE, player.getX(), player.getEyeY(), player.getZ(), world);
+            bullet.setVelocity(player, player.getPitch(), player.getYaw(), 0f, 5f, 0f);
+            world.spawnEntity(bullet);
         }
 
-        return super.use(world, player, hand);
+        return TypedActionResult.success(itemStack, world.isClient());
     }
 
 }
